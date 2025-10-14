@@ -1,9 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>assignment 0</title>
+  <!-- Responsive design meta tag for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title displayed in browser tab -->
+  <title>The Fall of Atari and the Rise of Nintendo</title>
+  <!-- Link to external CSS stylesheet for styling -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1 >This is my assignment 0</h1>
+  <!-- Header section: contains website title and navigation menu -->
+  <header>
+    <h1>The Video Game Crash of 1983</h1>
+
+    <!-- Navigation bar with links to different pages -->
+    <nav>
+      <ul>
+        <!-- Active link is highlighted with class="active" -->
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="concepts.html">Key Concepts</a></li>
+        <li><a href="atari.html">Fall of Atari</a></li>
+        <li><a href="crash.html">1983 Crash</a></li>
+        <li><a href="nintendo.html">Rise of Nintendo</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content layout using flexbox -->
+  <main class="main-layout">
+
+    <!-- Left content area -->
+    <section class="content">
+      <!-- Page heading -->
+      <h1>The Fall of Atari and the Rise of Nintendo</h1>
+
+      <!-- Section showing a visual comparison of Atari vs. NES -->
+      <section class="image-row">
+        <!-- Image of Atari console -->
+        <img src="images/atari-console.jpg" alt="Atari 2600 console">
+        <!-- Arrow indicating transition or comparison -->
+        <span class="arrow">➡️</span>
+        <!-- Image of NES console -->
+        <img src="images/NES-Console.jpg" alt="Nintendo Entertainment System">
+      </section>
+
+      <!-- Paragraph describing the historical context and purpose of the website -->
+      <p>
+        This website explores one of the most fascinating eras in gaming history. The fall of Atari,
+        the 1983 video game crash, and the triumphant rise of Nintendo in America that reshaped and saved the entire industry through its marketing.
+      </p>
+    </section>
+
+    <!-- Sidebar: additional navigation or resources -->
+    <aside class="sidebar">
+      <!-- Sidebar heading -->
+      <h2>Table of Contents</h2>
+
+      <!-- Sidebar navigation links for easier page access -->
+      <ul>
+        <li><a href="concepts.html">Key Concepts</a></li>
+        <li><a href="atari.html">The Fall of Atari</a></li>
+        <li><a href="crash.html">The 1983 Video Game Crash</a></li>
+        <li><a href="nintendo.html">The Rise of Nintendo</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <!-- Sidebar image with a link to a sound file (clicking plays Mario coin sound) -->
+      <a href="sounds/mario-coin-.mp3" target="_blank">
+        <img src="images/8-bit-mario.jpg" alt="Mario" class="sidebar-image">
+      </a>
+    </aside>
+  </main>
+
+  <!-- Footer section: contains project info and links -->
+  <footer>
+    <p>This is a class project for 
+      <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT3203</a>.
+    </p>
+  </footer>
 </body>
 </html>
