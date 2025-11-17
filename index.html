@@ -16,16 +16,16 @@
     <!-- Navigation bar with links to different pages -->
     <nav>
       <ul>
-        <!-- Active link is highlighted with class="active" -->
+        <!-- Navigation links -->
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="concepts.html">Key Concepts</a></li>
         <li><a href="atari.html">Fall of Atari</a></li>
         <li><a href="crash.html">1983 Crash</a></li>
         <li><a href="nintendo.html">Rise of Nintendo</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
         <li><a href="references.html">References</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
-    </nav>
   </header>
 
   <!-- Main content layout using flexbox -->
@@ -48,10 +48,44 @@
 
       <!-- Paragraph describing the historical context and purpose of the website -->
       <p>
-        This website explores one of the most fascinating eras in gaming history. The fall of Atari,
-        the 1983 video game crash, and the triumphant rise of Nintendo in America that reshaped and saved the entire industry through its marketing.
+        This website explores one of the most fascinating eras in gaming history, the 1983 vidoe gmae crsh and the falout from that. 
+        Explore how the industry giant Atari fell from grace and the causes and effects of it. Then, learn about
+        the 1983 video game crash and what factors led to it. Finally, discover Nintendo's innovative strategies led to its 
+        triumphant rise in America that reshaped and saved the entire industry. On each page, you'll find detailed explanations, images, and resources to 
+        expand your knowledge of this period. When you're ready, test your understanding with the quiz and see how much you've learned!
       </p>
+
+      <!-- timeline -->
+<h2>Timeline of Key Events</h2>
+
+<div class="timeline">
+  <div class="event">
+    <span class="year">1972</span>
+    <p>Atari founded</p>
+  </div>
+
+  <div class="event">
+    <span class="year">1977</span>
+    <p>Atari 2600 released</p>
+  </div>
+
+  <div class="event">
+    <span class="year">1982</span>
+    <p> <em>E.T.</em> game released</p>
+  </div>
+
+  <div class="event">
+    <span class="year">1983</span>
+    <p>Video game crash occurs</p>
+  </div>
+
+  <div class="event">
+    <span class="year">1985</span>
+    <p>Nintendo launches NES in the U.S.</p>
+  </div>
+</div>
     </section>
+
 
     <!-- Sidebar: additional navigation or resources -->
     <aside class="sidebar">
@@ -64,15 +98,22 @@
         <li><a href="atari.html">The Fall of Atari</a></li>
         <li><a href="crash.html">The 1983 Video Game Crash</a></li>
         <li><a href="nintendo.html">The Rise of Nintendo</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
         <li><a href="references.html">References</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
 
-      <!-- Sidebar image with a link to a sound file (clicking plays Mario coin sound) -->
-      <a href="sounds/mario-coin-.mp3" target="_blank">
-        <img src="images/8-bit-mario.jpg" alt="Mario" class="sidebar-image">
-      </a>
-    </aside>
+
+  <!-- CLICKABLE MARIO IMAGE THAT PLAYS SOUND -->
+      <img src="images/8-bit-mario.jpg" 
+       alt="Mario" 
+       class="sidebar-image" 
+       id="marioImg">
+
+  <!-- Hidden audio element -->
+  <audio id="coinSound" src="sounds/mario-coin-.mp3"></audio>
+
+</aside>
   </main>
 
   <!-- Footer section: contains project info and links -->
@@ -81,5 +122,15 @@
       <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT3203</a>.
     </p>
   </footer>
+
+    <script>
+    const mario = document.getElementById("marioImg");
+    const sound = document.getElementById("coinSound");
+
+    mario.addEventListener("click", function () {
+      sound.currentTime = 0; // allows rapid replay
+      sound.play();
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- Declares that this document uses HTML5 -->
+<html lang="en">
+<head>
+  <!-- Character encoding for proper text display -->
+  <meta charset="UTF-8">
+  <!-- Makes the page responsive on different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title shown in browser tab -->
+  <title>About the Creator</title>
+  <!-- Link to external CSS for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- HEADER SECTION: Contains site title and navigation links -->
+  <header>
+    <!-- Main heading of the website -->
+    <h1>The Video Game Crash of 1983</h1>
+
+    <!-- NAVIGATION MENU: Links to other pages -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="concepts.html">Key Concepts</a></li>
+        <li><a href="atari.html">Fall of Atari</a></li>
+        <li><a href="crash.html">1983 Crash</a></li>
+        <li><a href="nintendo.html">Rise of Nintendo</a></li>
+        <li><a href="quiz.html" class="active">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN QUIZ CONTAINER -->
+  <div class="quiz-container">
+
+    <!-- Page heading for quiz -->
+    <h1>Video Game Crash Quiz</h1>
+
+    <!-- FORM: Quiz questions -->
+    <form id="quizForm">
+
+        <!-- Question 1: Fill in the blank -->
+        <div class="question-block">
+            <p class="question">1. What year did the video game market crash?</p>
+            <input type="text" name="q1" class="text-input">
+        </div>
+
+        <!-- Question 2: Multiple choice (single answer) -->
+        <div class="question-block">
+            <p class="question">2. What game is the common culprit blamed for the 1983 crash?</p>
+            <label><input type="radio" name="q2" value="a"> E.T. the Extra-Terrestrial</label><br>
+            <label><input type="radio" name="q2" value="b"> Pac-Man</label><br>
+            <label><input type="radio" name="q2" value="c"> Donkey Kong</label>
+        </div>
+
+        <!-- Question 3: Multiple choice -->
+        <div class="question-block">
+            <p class="question">3. What was the name of the Colecovision attachment that played Atari games?</p>
+            <label><input type="radio" name="q3" value="a"> Atari cloner</label><br>
+            <label><input type="radio" name="q3" value="b"> Expansion Module #1</label><br>
+            <label><input type="radio" name="q3" value="c"> SG-1000</label>
+        </div>
+
+        <!-- Question 4: Multiple choice -->
+        <div class="question-block">
+            <p class="question">4. What did Nintendo put on their game cartridges to help with quality control?</p>
+            <label><input type="radio" name="q4" value="a"> Nintendo Seal of Authenticity</label><br>
+            <label><input type="radio" name="q4" value="b"> Mario</label><br>
+            <label><input type="radio" name="q4" value="c"> Nintendo Seal of Quality</label>
+        </div>
+
+        <!-- Question 5: Multi-selection (more than one correct answer) -->
+        <div class="question-block">
+            <p class="question">5. Select all that apply: Which of the following are Japan-based game companies that came to America post-crash?</p>
+            <label><input type="checkbox" name="q5" value="Nintendo"> Nintendo</label><br>
+            <label><input type="checkbox" name="q5" value="Atari"> Atari</label><br>
+            <label><input type="checkbox" name="q5" value="Sega"> Sega</label><br>
+            <label><input type="checkbox" name="q5" value="Mattel"> Mattel</label>
+        </div>
+
+        <!-- Buttons for submitting and resetting the quiz -->
+        <button type="submit" id="submitBtn">Submit Quiz</button>
+        <button type="button" id="resetBtn">Reset Quiz</button>
+
+    </form>
+
+    <!-- Container to display quiz results -->
+    <div id="results"></div>
+
+  </div>
+
+  <!-- FOOTER SECTION: Class project attribution -->
+  <footer>
+    <p>
+      This is a class project for 
+      <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT3203</a>.
+    </p>
+  </footer>
+
+  <!-- QUIZ JAVASCRIPT -->
+  <script>
+  // Correct answers object
+  const answers = {
+    q1: "1983",                  // Fill-in-the-blank answer
+    q2: "a",                     // Question 2 correct option
+    q3: "b",                     // Question 3 correct option
+    q4: "c",                     // Question 4 correct option
+    q5: ["Nintendo", "Sega"]     // Question 5 correct checkboxes
+  };
+
+  // Function to evaluate the quiz
+  function checkQuiz(event) {
+    event.preventDefault(); // Prevent default form submission
+    let score = 0;          // Initialize score counter
+    let results = "<h2>Results</h2>"; // HTML string for results
+
+    // QUESTION 1: Fill-in-the-blank
+    const q1 = document.querySelector("input[name='q1']").value.trim();
+    const correct1 = q1 === answers.q1; // Compare with correct answer
+    if (correct1) score++;
+    results += `<p><strong>1.</strong> ${correct1 ? "Correct" : "Incorrect"} 
+                (Your answer: ${q1 || "none"}) — Correct: ${answers.q1}</p>`;
+
+    // QUESTIONS 2-4: Multiple-choice questions
+    ["q2","q3","q4"].forEach((q, i) => {
+      const user = document.querySelector(`input[name='${q}']:checked`)?.value || "none"; // Get user selection
+      const correct = user === answers[q];
+      if (correct) score++;
+      results += `<p><strong>${i+2}.</strong> ${correct ? "Correct" : "Incorrect"} 
+                  (Your answer: ${user}) — Correct: ${answers[q]}</p>`;
+    });
+
+    // QUESTION 5: Multi-select checkboxes
+    const selected = [...document.querySelectorAll("input[name='q5']:checked")].map(x => x.value);
+    const correct5 = JSON.stringify(selected.sort()) === JSON.stringify(answers.q5.sort()); // Compare arrays
+    if (correct5) score++;
+    results += `<p><strong>5.</strong> ${correct5 ? "Correct" : "Incorrect"} 
+                (Your answers: ${selected.join(", ") || "none"}) — Correct: ${answers.q5.join(", ")}</p>`;
+
+    // Display total score and pass/fail
+    results += `<h3>Total Score: ${score}/5</h3>`;
+    results += `<h3 style="color:${score>=3?'green':'red'}">${score>=3?'PASS':'FAIL'}</h3>`;
+
+    // Insert results into the page
+    document.getElementById("results").innerHTML = results;
+  }
+
+  // Attach event listener to the quiz form for submission
+  document.getElementById("quizForm").addEventListener("submit", checkQuiz);
+
+  // Attach event listener to reset button to clear form and results
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    document.getElementById("quizForm").reset();       // Clear all input fields
+    document.getElementById("results").innerHTML = ""; // Clear previous results
+  });
+  </script>
+
+</body>
+</html>

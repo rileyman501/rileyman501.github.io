@@ -263,5 +263,166 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* === QUIZ PAGE STYLING === */
+.quiz-container {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
 
+/* Quiz Title */
+.quiz-container h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: rgb(0, 0, 0);
+  border-bottom: 3px solid #222;
+  padding-bottom: 10px;
+}
 
+/* Question Block */
+.question-block {
+  margin-bottom: 25px;
+  padding: 15px 20px;
+  background: #f9f9f9;
+  border-left: 5px solid rgb(8, 133, 235);
+  border-radius: 8px;
+}
+
+/* Question Text */
+.question-block .question {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Styling Inputs */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  outline: none;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: rgb(8, 133, 235);
+}
+
+/* Radio + Checkbox groups */
+.question-block label {
+  display: block;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+/* Submit + Reset Buttons */
+#submitBtn, 
+#resetBtn {
+  padding: 12px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+#submitBtn {
+  background: rgb(8, 133, 235);
+  color: #fff;
+  font-weight: bold;
+}
+
+#resetBtn {
+  background: #444;
+  color: #fff;
+  margin-left: 10px;
+}
+
+/* Hover animations */
+#submitBtn:hover, 
+#resetBtn:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+/* Results Section */
+#results {
+  background: #eef5ff;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid rgb(8, 133, 235);
+}
+
+#results h2 {
+  text-align: center;
+  color: #222;
+}
+
+#results p {
+  font-size: 1.05em;
+  margin: 12px 0;
+}
+
+/* PASS / FAIL colors */
+.quiz-pass {
+  color: green;
+  font-weight: bold;
+}
+
+.quiz-fail {
+  color: red;
+  font-weight: bold;
+}
+
+/* TIMELINE STYLING */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-top: 3px solid #555;
+    position: relative;
+  }
+
+  .timeline::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #555;
+  }
+/* event dot on timeline*/
+  .event {
+    text-align: center;
+    position: relative;
+    width: 18%;
+  }
+
+  .event::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: #555;
+    border-radius: 50%;
+  }
+
+/* event Year on timeline text */
+  .year {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
