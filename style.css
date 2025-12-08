@@ -426,3 +426,188 @@ input[type="text"]:focus {
     display: block;
     margin-bottom: 5px;
   }
+
+  /* -------------------------------
+   MOBILE RESPONSIVE DESIGN
+   Only applies on screens ≤ 600px
+-------------------------------- */
+@media (max-width: 600px) {
+
+  /* Make layout stack vertically instead of side-by-side */
+  .container,
+  .content,
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    display: block;
+  }
+
+  /* Mobile navigation menu */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px;
+  }
+
+  /* Make images resize properly on small screens */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tables should scroll on mobile */
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+
+  /* Quiz form responsive tweaks */
+  .quiz-container {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .quiz-container input[type="text"],
+  .quiz-container input[type="checkbox"],
+  .quiz-container input[type="radio"],
+  .quiz-container select {
+    transform: scale(1.2);  /* easier to tap */
+    margin-bottom: 10px;
+  }
+
+  .quiz-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+  }
+}
+
+/* ============================================================
+   GLOBAL OVERFLOW FIX — Prevent any page from going sideways
+   ============================================================ */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make all images shrink instead of overflowing */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix long links/text overflow (for references page) */
+a, p, li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUT — Works for every page
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Stack main article and sidebar vertically */
+  .main-layout {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .content, 
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar {
+    margin-top: 25px;
+  }
+
+  /* --- QUIZ FIXES --- */
+  .quiz-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .question-block {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  /* Prevent radio/checkbox labels from pushing layout */
+  .question-block label {
+    font-size: 1rem;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  /* Buttons scale properly on mobile */
+  #submitBtn, #resetBtn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  /* --- REFERENCES PAGE FIXES --- */
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    padding: 8px;
+    text-align: left;
+  }
+
+  /* --- TIMELINE FIX (from earlier) --- */
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .event {
+    width: 100%;
+    text-align: center;
+  }
+
+  .event::before {
+    display: none;
+  }
+
+  /* --- NAV MENU (fix links wrapping badly) --- */
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 5px;
+  }
+
+  nav ul li a {
+    padding: 10px 14px;
+    display: inline-block;
+  }
+}
+
+
+
