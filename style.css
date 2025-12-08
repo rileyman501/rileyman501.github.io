@@ -63,7 +63,6 @@ nav a:hover {
 .content {
   flex: 3;                               /* Take most of the horizontal space */
   background-color: #fff;                /* White background for readability */
-  padding: 20px 30px;                    /* Inner spacing */
   border-radius: 10px;                   /* Rounded corners */
 }
 
@@ -93,6 +92,15 @@ nav a:hover {
   align-items: center;
   gap: 20px;
   margin: 25px 0;
+}
+
+.bg-section {
+  background-image: url('images/woodgrain.jpg'); /* only for sections with this class */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 100px; 
+  padding: 20px;
 }
 
 .image-row img {
