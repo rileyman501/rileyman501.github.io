@@ -564,6 +564,12 @@ a, p, li {
     line-height: 1.3;
     white-space: normal;
   }
+/* Make quiz input boxes scale for mobile */
+.text-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
   /* Buttons scale properly on mobile */
   #submitBtn, #resetBtn {
@@ -617,5 +623,12 @@ a, p, li {
   }
 }
 
+.center-image {
+  display: block;        
+  margin: 0 auto;          
+  max-width: 100%;         
+  height: auto;            
+  text-align: center;      
+}
 
 
